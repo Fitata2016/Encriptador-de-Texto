@@ -215,12 +215,15 @@ main {
     height: 1100px;
   }
   .text-input > textarea {
-    height: 400px;
+    height: 300px;
     padding: 10px;
   }
   .ad-input {
     margin: 5px 1.2em;
     width: 200px;
+  }
+  .text-output {
+    height: 130px;
   }
   .text-output > textarea {
     height: 300px;
