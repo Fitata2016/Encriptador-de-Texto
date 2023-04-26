@@ -220,10 +220,11 @@ main {
   }
   .ad-input {
     margin: 5px 1.2em;
-    width: 200px;
+    width: 80%;
   }
   .text-output {
     height: fit-content;
+    border-radius: 20px;
   }
   .text-output > textarea {
     height: 250px;
