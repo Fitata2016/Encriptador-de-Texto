@@ -1,0 +1,248 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background: #ffe6cc;
+}
+main {
+  display: flex;
+}
+.logo {
+  margin-top: 30px;
+  margin-left: 30px;
+  display: block;
+}
+.text-input {
+  display: inline-block;
+  width: 70%;
+}
+.text-input > textarea {
+  border: none;
+  width: 70%;
+  height: 350px;
+  margin-left: 15%;
+  margin-top: 55px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 150%;
+  color: #0a3871;
+  padding: 20px;
+}
+.ad-input {
+  margin: 5px 12em;
+  width: 40%;
+  height: 18px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  color: #495057;
+  opacity: 0.8;
+}
+.ad-input img {
+  vertical-align: bottom;
+  padding-right: 5px;
+}
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.encrypt {
+  color: #0a3871;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  width: 328px;
+  height: 67px;
+  background: #ffb366;
+  border-radius: 24px;
+  margin: 10px;
+  border: 1px solid #0a3871;
+  cursor: pointer;
+}
+.decrypt {
+  align-items: flex-start;
+  padding: 24px;
+  width: 328px;
+  height: 67px;
+  margin: 10px;
+  background: #ffe6cc;
+  border: 1px solid #0a3871;
+  border-radius: 24px;
+  cursor: pointer;
+}
+.text-output {
+  width: 28%;
+  height: 583px;
+  background: #ffffff;
+  border-radius: 32px;
+  box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+  margin-top: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.text-output textarea {
+  border: none;
+  width: 90%;
+  height: 460px;
+  margin: 5%;
+  background: #ffffff;
+  padding: 20px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 150%;
+  color: #495057;
+}
+.copy {
+  margin: auto;
+  width: 90%;
+  height: 67px;
+  left: 1000px;
+  background: #ffffff;
+  border: 1px solid #0a3871;
+  border-radius: 24px;
+  cursor: pointer;
+}
+.no-text {
+  width: 100%;
+  height: 583px;
+  background: #ffffff;
+  border-radius: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.no-text h3 {
+  width: 90%;
+  height: 2em;
+  background: #ffffff;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+  color: #343a40;
+  margin: 1% auto;
+}
+.no-text p {
+  width: 90%;
+  height: 2em;
+  background: #ffffff;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  color: #495057;
+  margin: 1% auto;
+}
+.graphic {
+  width: 80%;
+  height: 250px;
+  margin: 1.5em 2.5em;
+  margin: 0 auto;
+  background: #ffffff;
+}
+@media screen and (max-width: 768px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    height: 800px;
+  }
+  .text-input {
+    width: 100%;
+  }
+  .text-input > textarea {
+    border: none;
+    width: 85%;
+    height: 350px;
+    margin-left: 8%;
+    margin-top: 55px;
+    padding: 10px;
+  }
+  .text-output {
+    width: 80%;
+    margin: 40px auto;
+  }
+  .text-output > textarea {
+    border: none;
+    width: 90%;
+    height: 200px;
+    margin: 5%;
+    padding: 20px;
+  }
+  .ad-input {
+    margin: 5px 4em;
+  }
+  .copy {
+    margin-bottom: 20px;
+  }
+  .no-text {
+    margin-top: 5px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+  }
+  .no-text h3 {
+    width: 90%;
+    height: 1.5em;
+    margin: 5px auto;
+  }
+  .no-text p {
+    width: 90%;
+    height: 1.5em;
+    margin: 0 auto;
+  }
+  .graphic {
+    display: none;
+  }
+}
+@media screen and (max-width: 525px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    height: 1100px;
+  }
+  .text-input > textarea {
+    height: 400px;
+    padding: 10px;
+  }
+  .ad-input {
+    margin: 5px 1.2em;
+    width: 200px;
+  }
+  .text-output > textarea {
+    height: 300px;
+  }
+  .no-text {
+    height: 130px;
+  }
+  .no-text h3 {
+    height: 2em;
+    margin-top: -15px;
+  }
+  .buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .encrypt {
+    width: 328px;
+  }
+  .decrypt {
+    width: 328px;
+  }
+}

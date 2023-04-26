@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Encriptador de Texto</title>
+  </head>
+  <body>
+    <main>
+      <section class="text-input">
+        <img class="logo" src="./images/Logo.svg" alt="" />
+        <textarea
+          name=""
+          id="text-input"
+          cols="30"
+          rows="10"
+          placeholder="Ingrese el texto aquí"
+        ></textarea>
+        <p class="ad-input">
+          <img src="./images/Vector.png" alt="" />Solo letras minúsculas y sin
+          acentos
+        </p>
+        <div class="buttons">
+          <button class="encrypt" id="encrypt">Encriptar</button>
+          <button class="decrypt" id="decrypt">Desencriptar</button>
+        </div>
+      </section>
+      <section class="text-output">
+        <div class="no-text" id="no-text">
+          <img class="graphic" src="./images/Muñeco.svg" alt="" id="graphic" />
+          <h3>Ningún mensaje fue encontrado</h3>
+          <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+        </div>
+        <textarea name="" id="text-output" cols="30" rows="10"> </textarea>
+        <button class="copy" id="copy">Copiar</button>;
+      </section>
+    </main>
+  </body>
+
+  <script>
+    //La siguiente función oculta la imagen de mensaje "Ningún mensaje fué encontrado", y en su lugar muestra un recuadro de contenido para el texto de salida(Esto se ejecutará siempre y cuando no haya contenido en el recuadro de texto principal)...
+    function hideContent() {
+      if (textAreaContent.value.length > 0) {
+        document.getElementById("text-output").style.display = "inline";
+        document.getElementById("copy").style.display = "inline";
+        document.getElementById("no-text").style.display = "none";
+      } else {
+        document.getElementById("no-text").style.display = "flex";
+        document.getElementById("text-output").style.display = "none";
+        document.getElementById("copy").style.display = "none";
+        deleteOutPut();
+      }
+    }
+    //La siguiente funcion limpia el recuadro de salida cuando no hay contenido para encriptar ó desencriptar...
+    function deleteOutPut() {
+      let output = document.getElementById("text-output");
+      output.value = "";
+    }
+
+    //ENCRIPTANDO
+    //Esta función obtiene el contenido del recuadro ya su vez llama la funcion encriptar...
+    function encryptText() {
+      let input = document.getElementById("text-input");
+      let output = document.getElementById("text-output");
+      let text = input.value;
+      let textEncrypted = encrypt(text);
+      output.value = textEncrypted;
+    }
+
+    //Esta función encripta el texto...
+    function encrypt(text) {
+      var textEncrypted = "";
+      for (let i = 0; i < text.length; i++) {
+        if (text[i] === "a") {
+          textEncrypted += "ai";
+        } else if (text[i] === "e") {
+          textEncrypted += "enter";
+        } else if (text[i] === "i") {
+          textEncrypted += "imes";
+        } else if (text[i] === "o") {
+          textEncrypted += "ober";
+        } else if (text[i] === "u") {
+          textEncrypted += "ufat";
+        } else {
+          textEncrypted += text[i];
+        }
+      }
+      return textEncrypted;
+    }
+
+    //DESENCRIPTANDO
+    //Esta función obtiene el contenido del recuadro ya su vez llama la funcion desencriptar...
+    function decryptText() {
+      let input = document.getElementById("text-input");
+      let output = document.getElementById("text-output");
+      let text = input.value;
+      let textDecrypted = decrypt(text);
+      output.value = textDecrypted;
+    }
+
+    //Esta función desencripta el texto...
+    function decrypt(text) {
+      var textDecrypted = "";
+      for (let i = 0; i < text.length; i++) {
+        if (text[i] === "a" && text[i + 1] === "i") {
+          textDecrypted += "a";
+          i += 1;
+        } else if (
+          text[i] === "e" &&
+          text[i + 1] === "n" &&
+          text[i + 2] === "t" &&
+          text[i + 3] === "e" &&
+          text[i + 4] === "r"
+        ) {
+          textDecrypted += "e";
+          i += 4;
+        } else if (
+          text[i] === "i" &&
+          text[i + 1] === "m" &&
+          text[i + 2] === "e" &&
+          text[i + 3] === "s"
+        ) {
+          textDecrypted += "i";
+          i += 3;
+        } else if (
+          text[i] === "o" &&
+          text[i + 1] === "b" &&
+          text[i + 2] === "e" &&
+          text[i + 3] === "r"
+        ) {
+          textDecrypted += "o";
+          i += 3;
+        } else if (
+          text[i] === "u" &&
+          text[i + 1] === "f" &&
+          text[i + 2] === "a" &&
+          text[i + 3] === "t"
+        ) {
+          textDecrypted += "u";
+          i += 3;
+        } else {
+          textDecrypted += text[i];
+        }
+      }
+      return textDecrypted;
+    }
+
+    //Esta función usa el boton copiar para copiar el texto al portapapeles...
+    function copyText() {
+      let textArea = document.getElementById("text-output");
+      let content = textArea.value;
+      document.getElementById("copy").style.background = "#ffe6cc";
+      document.getElementById("copy").textContent = "Copiado!";
+      setTimeout(function changeTitleButton() {
+        document.getElementById("copy").style.background = "#ffffff";
+        document.getElementById("copy").textContent = "Copiar";
+      }, 500);
+      navigator.clipboard.writeText(content);
+    }
+
+    //Configuraciones por defecto de los elementos a aparecer al inicio de la aplicación en el recuadro de salida...
+    document.getElementById("text-output").style.display = "none";
+    document.getElementById("copy").style.display = "none";
+
+    //Controlando el contenido del recuadro principal para ocultar o mostrar la imagen del recuadro de salida...
+    let textAreaContent = document.getElementById("text-input");
+    textAreaContent.addEventListener("input", hideContent);
+
+    //Encriptar el texto...
+    let button1 = document.getElementById("encrypt");
+    button1.onclick = encryptText;
+
+    //Desencriptar el texto...
+    let button2 = document.getElementById("decrypt");
+    button2.onclick = decryptText;
+
+    //Copiar el texto al portapapeles...
+    let button3 = document.getElementById("copy");
+    button3.addEventListener("click", copyText);
+  </script>
+</html>
