@@ -31,7 +31,7 @@ main {
   padding: 20px;
 }
 .ad-input {
-  margin: 5px 12em;
+  margin: 5px 15%;
   width: 40%;
   height: 18px;
   font-family: "Inter";
@@ -219,7 +219,7 @@ main {
     padding: 10px;
   }
   .ad-input {
-    margin: 5px 1.2em;
+    margin: 5px 15%;
     width: 80%;
   }
   .text-output {
