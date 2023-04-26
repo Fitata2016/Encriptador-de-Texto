@@ -29,6 +29,8 @@ main {
   line-height: 150%;
   color: #0a3871;
   padding: 20px;
+  outline: none;
+  resize: none;
 }
 .ad-input {
   margin: 5px 15%;
@@ -102,6 +104,8 @@ main {
   font-size: 24px;
   line-height: 150%;
   color: #495057;
+  outline: none;
+  resize: none;
 }
 .copy {
   margin: auto;
